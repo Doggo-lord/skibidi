@@ -1,115 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Adsense --> 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8024356722027062"
-       crossorigin="anonymous"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKK1BVCT2G"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slope Game</title>
 
-    gtag('config', 'G-VKK1BVCT2G');
-  </script>
-  <link rel="stylesheet" href="TemplateData/style.css">
-  <script src="TemplateData/UnityProgress.js"></script>
-  <script src="TemplateData/unityloader41.js"></script>
-  <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/slope.json", { onProgress: UnityProgress, Module: { onRuntimeInitialized: function() { UnityProgress(gameInstance, "complete") } } });
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2541434264715219"
-       crossorigin="anonymous"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2541434264715219"
-       crossorigin="anonymous"></script>
-  <style>
-      .alert {
-        padding: 20px;
-        background-color: #0096FF;
-        color: white;
-      }
-      .closebtn {
-        margin-left: 15px;
-        color: white;
-        p {text-align: center;}  
-        font-weight: bold;
-        float: right;
-        font-size: 22px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-      .closebtn:hover {
-        color: black;
-      }
-  </style>
+    <!-- Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8024356722027062"
+        crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKK1BVCT2G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VKK1BVCT2G');
+    </script>
+
+    <!-- Unity Game Files -->
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="TemplateData/unityloader41.js"></script>
+    <script>
+        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/slope.json", {
+            onProgress: UnityProgress,
+            Module: { onRuntimeInitialized: function () { UnityProgress(gameInstance, "complete") } }
+        });
+    </script>
+
+    <!-- Styling -->
+    <style>
+        .alert {
+            padding: 20px;
+            background-color: #0096FF;
+            color: white;
+        }
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .closebtn:hover {
+            color: black;
+        }
+    </style>
+
+    <!-- Password Protection -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var password = prompt("Enter password to play:");
+            if (password !== "AKSHATH") {
+                alert("Incorrect password!");
+                window.location.href = "https://google.com"; // Redirect if wrong
+            }
+        });
+    </script>
+
 </head>
-
-<!--- 
-Want to run or host yourself? Check out the source? 
-https://github.com/cgolden15/Slope-Game/ 
-
-Drop a star on the repo if you enjoy.
---->
-
 <body style="margin: 0; overflow: hidden;">
-  <!-- Rickroll GIF Overlay -->
-<div id="rickrollOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,1); z-index: 2000; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="https://media.tenor.com/_4YgA77ExHEAAAAd/rickroll.gif" alt="Rickroll" style="max-width: 80%; height: auto; border-radius: 10px;">
-    <p style="color: white; font-size: 20px; margin-top: 10px;">Press <b>Esc</b> or wait 10 seconds to continue.</p>
-</div>
 
-  <!-- Password Overlay -->
- <script>
-    var password = prompt("Enter password to play:");
-    if (password !== "AKSHATH") {
-        alert("Incorrect password!");
-        window.location.href = "https://google.com"; // Redirect if wrong
-    }
-</script>
+    <!-- Rickroll GIF Overlay -->
+    <div id="rickrollOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,1); z-index: 2000; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <img src="https://media.tenor.com/_4YgA77ExHEAAAAd/rickroll.gif" alt="Rickroll" style="max-width: 80%; height: auto; border-radius: 10px;">
+        <p style="color: white; font-size: 20px; margin-top: 10px;">Press <b>Esc</b> or wait 10 seconds to continue.</p>
+    </div>
 
+    <!-- Info Alert -->
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Want to play Tetris? <a href="https://goldenn.dev/tetris/">Click here!</a> REMOVE ADS by clicking the white arrow below them!
+    </div>
 
-  <div class="alert">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-      Want to play tetris? <a href="https://goldenn.dev/tetris/">Click here!</a> REMOVE ADS by clicking the white arrow below them!
-  </div>
-  <div class="webgl-content">
-      <div id="gameContainer" style="width: 100%; height: 100%; margin: 0;"></div>
-  </div>
-  <!-- <a title="GDPR-compliant Web Analytics" href="https://clicky.com/101393847"><img alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a> -->
-  <script async src="//static.getclicky.com/101393847.js"></script>
-  <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101393847ns.gif" /></p></noscript>
-  
-   <script>
-    // Hide Rickroll after 10 seconds
-    setTimeout(function() {
-        document.getElementById("rickrollOverlay").style.display = "none";
-    }, 10000);
+    <!-- Game Container -->
+    <div class="webgl-content">
+        <div id="gameContainer" style="width: 100%; height: 100%; margin: 0;"></div>
+    </div>
 
-    // Hide Rickroll when Esc key is pressed
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "Escape") {
+    <!-- Clicky Analytics -->
+    <script async src="//static.getclicky.com/101393847.js"></script>
+    <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101393847ns.gif" /></p></noscript>
+
+    <!-- Rickroll Behavior -->
+    <script>
+        // Hide Rickroll after 10 seconds
+        setTimeout(function () {
             document.getElementById("rickrollOverlay").style.display = "none";
-        }
-    });
+        }, 10000);
 
-    // Focus on the password input when Rickroll disappears
-    function checkPassword() {
-        var input = document.getElementById("passwordInput").value;
-        if(input === "AKSHATH"){
-            document.getElementById("passwordOverlay").style.display = "none";
-        } else {
-            document.getElementById("errorMsg").style.display = "block";
-        }
-    }
+        // Hide Rickroll when Esc key is pressed
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                document.getElementById("rickrollOverlay").style.display = "none";
+            }
+        });
+    </script>
 
-    document.getElementById("passwordInput").addEventListener("keyup", function(event) {
-        if (event.key === "Enter") {
-            checkPassword();
-        }
-    });
-
-    // Stop Unity from capturing input when typing in password
-    document.getElementById("passwordInput").addEventListener("focus", function(event) {
-        event.stopPropagation();
-    });
-</script>
+</body>
+</html>
