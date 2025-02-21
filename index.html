@@ -59,12 +59,14 @@ Drop a star on the repo if you enjoy.
 </div>
 
   <!-- Password Overlay -->
-  <div id="passwordOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-      <p style="color: white; font-size: 24px; margin-bottom: 20px;">Enter password to play:</p>
-      <input type="password" id="passwordInput" style="padding: 10px; font-size: 18px;"/>
-      <button onclick="checkPassword()" style="margin-top: 10px; padding: 10px 20px; font-size: 18px;">Submit</button>
-      <p id="errorMsg" style="color: red; margin-top: 10px; display: none;">Incorrect password, please try again.</p>
-  </div>
+ <script>
+    var password = prompt("Enter password to play:");
+    if (password !== "AKSHATH") {
+        alert("Incorrect password!");
+        window.location.href = "https://google.com"; // Redirect if wrong
+    }
+</script>
+
 
   <div class="alert">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
