@@ -68,7 +68,7 @@
     <!-- Rickroll GIF Overlay -->
     <div id="rickrollOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,1); z-index: 2000; display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <img src="https://media.tenor.com/_4YgA77ExHEAAAAd/rickroll.gif" alt="Rickroll" style="max-width: 80%; height: auto; border-radius: 10px;">
-        <p style="color: white; font-size: 20px; margin-top: 10px;">Press <b>Esc</b> or wait 10 seconds to continue.</p>
+        <p style="color: white; font-size: 20px; margin-top: 10px;">Press <b>Search + L</b> or wait inf seconds to continue.</p>
     </div>
 
     <!-- Info Alert -->
@@ -87,22 +87,27 @@
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101393847ns.gif" /></p></noscript>
 
     <!-- Rickroll Behavior -->
-    <script>
+   <script>
     let keys = {};
 
-    // Hide Rickroll only when Ctrl + Shift + Q is pressed
     document.addEventListener("keydown", function (event) {
-        keys[event.key] = true;
+        keys[event.key.toLowerCase()] = true;
 
-        if (keys["Control"] && keys["Shift"] && event.key === "q") {
-            document.getElementById("rickrollOverlay").style.display = "none";
+        if (keys["control"] && keys["shift"] && event.key.toLowerCase() === "q") {
+            let overlay = document.getElementById("rickrollOverlay");
+            if (overlay) {
+                overlay.style.display = "none";
+            } else {
+                console.warn("rickrollOverlay not found!");
+            }
         }
     });
 
     document.addEventListener("keyup", function (event) {
-        delete keys[event.key];
+        delete keys[event.key.toLowerCase()];
     });
 </script>
+
 
 
 </body>
