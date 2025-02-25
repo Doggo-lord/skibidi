@@ -87,26 +87,58 @@
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101393847ns.gif" /></p></noscript>
 
     <!-- Rickroll Behavior -->
-   <script>
-    let keys = {};
+  <script>
+    // Create and move rickrolls randomly
+    function spawnRickroll() {
+        const overlay = document.createElement("div");
+        overlay.style.position = "fixed";
+        overlay.style.top = Math.random() * window.innerHeight + "px";
+        overlay.style.left = Math.random() * window.innerWidth + "px";
+        overlay.style.width = "200px";
+        overlay.style.height = "200px";
+        overlay.style.background = "rgba(0,0,0,0)";
+        overlay.style.zIndex = "2000";
+        overlay.style.transform = `rotate(${Math.random() * 360}deg)`;
 
-    document.addEventListener("keydown", function (event) {
-        keys[event.key.toLowerCase()] = true;
+        const img = document.createElement("img");
+        img.src = "https://media.tenor.com/_4YgA77ExHEAAAAd/rickroll.gif";
+        img.alt = "Rickroll";
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.borderRadius = "10px";
 
-        if (keys["control"] && keys["shift"] && event.key.toLowerCase() === "q") {
-            let overlay = document.getElementById("rickrollOverlay");
-            if (overlay) {
-                overlay.style.display = "none";
-            } else {
-                console.warn("rickrollOverlay not found!");
-            }
+        overlay.appendChild(img);
+        document.body.appendChild(overlay);
+
+        // Make the GIF move randomly
+        setInterval(() => {
+            overlay.style.top = Math.random() * window.innerHeight + "px";
+            overlay.style.left = Math.random() * window.innerWidth + "px";
+            overlay.style.transform = `rotate(${Math.random() * 360}deg)`;
+        }, 1000);
+    }
+
+    // Play Rick Astley in the background
+    function playRickAstley() {
+        let audio = new Audio("https://www.myinstants.com/media/sounds/rickroll.mp3");
+        audio.loop = true;
+        audio.play();
+    }
+
+    // Infinite loop of spawning rickrolls
+    setInterval(spawnRickroll, 5000);
+
+    // Start the music when the page loads
+    setTimeout(playRickAstley, 2000);
+
+    // Clicking makes it worse (spams more GIFs)
+    document.addEventListener("click", () => {
+        for (let i = 0; i < 5; i++) {
+            spawnRickroll();
         }
     });
-
-    document.addEventListener("keyup", function (event) {
-        delete keys[event.key.toLowerCase()];
-    });
 </script>
+
 
 
 
