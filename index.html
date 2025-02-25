@@ -88,18 +88,22 @@
 
     <!-- Rickroll Behavior -->
     <script>
-        // Hide Rickroll after 10 seconds
-        setTimeout(function () {
-            document.getElementById("rickrollOverlay").style.display = "none";
-        }, 10000);
+    let keys = {};
 
-        // Hide Rickroll when Esc key is pressed
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape") {
-                document.getElementById("rickrollOverlay").style.display = "none";
-            }
-        });
-    </script>
+    // Hide Rickroll only when Ctrl + Shift + Q is pressed
+    document.addEventListener("keydown", function (event) {
+        keys[event.key] = true;
+
+        if (keys["Control"] && keys["Shift"] && event.key === "q") {
+            document.getElementById("rickrollOverlay").style.display = "none";
+        }
+    });
+
+    document.addEventListener("keyup", function (event) {
+        delete keys[event.key];
+    });
+</script>
+
 
 </body>
 </html>
